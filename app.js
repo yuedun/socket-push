@@ -1,16 +1,16 @@
-var express = require('express');
+var express = require('express');//function createApplication()
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var ejs = require('ejs');
-var server = require('http');
+var http = require('http');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var app = express();
-server.createServer(app);
+var app = express();//执行以后返回function (req,res,next){app.handle(req, res, next);}
+var server=http.createServer(app);
 io = require('socket.io').listen(server);
 
 // view engine setup
@@ -127,4 +127,4 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
-app.listen(80);
+server.listen(80);
