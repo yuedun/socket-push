@@ -53,7 +53,7 @@ io.on('connection',function(socket){
             obj['text']=client.name;
             obj['author']='System';
             obj['type']='welcome';
-            console.log(client.name+'login');
+            console.log(client.name+'-login');
 
             //返回欢迎语
             socket.emit('system',obj);
