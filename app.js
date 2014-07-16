@@ -92,7 +92,7 @@ var getTime = function(){
 var getColor = function(){
     var colors = ['aliceblue','antiquewhite','aqua','aquamarine','pink','red','green',
         'orange','blue','blueviolet','brown','burlywood','cadetblue'];
-    return colors[Math.round(random()*10000%colors.length)]
+    return colors[Math.round(Math.random()*10000%colors.length)]
 };
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -127,4 +127,4 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
-server.listen(80);
+server.listen(3001);

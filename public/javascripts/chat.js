@@ -8,7 +8,7 @@ $(function () {
     var myName = false;
 
 //建立websocket连接
-    socket = io.connect('http://localhost');
+    socket = io.connect('http://127.0.0.1:3001');
 //收到server的连接确认
     socket.on('open',function(){
         console.log("socket:"+socket);
