@@ -31,7 +31,7 @@ app.use(users);
 
 //设置日志级别
 io.set('log level', 1);
-//websocket连接监听
+//websocket连接监听,所有基于事件的都继承自event,on监听事件，once监听一次
 io.on('connection',function(socket){
    socket.emit('open');//通知客户端已连接
     //打印握手信息
