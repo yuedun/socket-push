@@ -11,7 +11,7 @@ var users = require('./routes/users');
 
 var app = express();//执行以后返回function (req,res,next){app.handle(req, res, next);}
 var server = http.createServer(app);
-var io = require('socket.io').listen(server);
+var io = require('socket.io').listen(server); 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
