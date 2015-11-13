@@ -36,14 +36,12 @@ io.on('connection',function(socket){
    socket.emit('open');//通知客户端已连接
     //打印握手信息
     console.log(socket.handshake);
-
     //构造客户端对象
     var client = {
         socket:socket,
         name:false,
         color:getColor()
     };
-
     //对message事件监听
     socket.on('message',function(msg){
         var obj = {time:getTime(),color:client.color};
@@ -54,7 +52,6 @@ io.on('connection',function(socket){
             obj['author']='System';
             obj['type']='welcome';
             console.log(client.name+'-login');
-
             //返回欢迎语
             socket.emit('system',obj);
             //广播新用户已登录

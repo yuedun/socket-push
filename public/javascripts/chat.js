@@ -13,7 +13,6 @@ $(function () {
     socket.on('open',function(){
         status.text('Choose a name:');
     });
-
 //监听system事件，判断welcome或者disconnect，打印系统消息信息
     socket.on('system',function(json){
         var p = '';
