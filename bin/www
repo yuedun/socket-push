@@ -1,9 +1,19 @@
 #!/usr/bin/env node
 var debug = require('debug')('chat-demo');
 var app = require('../app');
+var ioServer = require('socket.io');
+var action = require('../routes/socketAction');
 
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
+});
+
+var io = ioServer(server);
+//设置日志级别
+//io.set('log level', 1);
+//websocket连接监听,所有基于事件的都继承自event,on监听事件，once监听一次
+io.on('connection', function (socket) {
+    action(socket);
 });
