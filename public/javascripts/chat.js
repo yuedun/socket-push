@@ -8,7 +8,7 @@ $(function () {
     var myName = false;
 
     //建立websocket连接
-    socket = io.connect('http://localhost:3000');
+    socket = io.connect('/chat');
     //收到server的连接确认
     socket.on('open', function () {
         status.text('Choose a name:');
