@@ -6,6 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>文字转语音通知</title>
 	<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+	<style>
+		#background{
+			height: 100%;
+			width: 100%
+		}
+	</style>
 	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="/javascripts/socket.io.js"></script>
 	<script src="/javascripts/tts.min.js"></script>
@@ -14,10 +20,12 @@
 </head>
 
 <body>
-	<h1 style="color:red"></h1>
-	<audio src="">
-		不支持语音标签
-	</audio>
+	<div id="background" >
+		<h1></h1>
+		<audio src="">
+			不支持语音标签
+		</audio>
+	</div>
 </body>
 
 </html>

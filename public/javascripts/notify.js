@@ -3,6 +3,8 @@
  */
 $(function () {
     var text = $("h1");
+    var body = $("#background");
+    body.height($(document).height())
     //==============
     /**
      * 初始化Session对象
@@ -31,7 +33,12 @@ $(function () {
 
     //建立websocket连接
     !function socketlink(params) {
-        socket = io.connect('/notify');
+        socket = io.connect('/notify',{
+        'reconnection': true,
+        'reconnectionDelay': 5000,
+        'reconnectionDelayMax': 10000,
+        'reconnectionAttempts': 10
+    });
         socket.on('open', function (data) {
             text.html(data.text);
         });
@@ -41,13 +48,13 @@ $(function () {
             text.html(data.text);
             play(data.text, "viviyufeng");
             timer = setInterval(function(){
-                if (!text.css("color")) {
-                    text.css("color", "rgb(253, 4, 4)");
+                if (!body.css("background-color")) {
+                    body.css("background-color", "rgb(253, 4, 4)");
                 }
-                if (text.css("color") === "rgb(253, 4, 4)") {
-                    text.css("color", "#FFF")
+                if (body.css("background-color") === "rgb(253, 4, 4)") {
+                    body.css("background-color", "#FFF")
                 } else {
-                    text.css("color", "rgb(253, 4, 4)");
+                    body.css("background-color", "rgb(253, 4, 4)");
                 }
                 if (shadow < 20) {
                     shadow++;
@@ -59,7 +66,7 @@ $(function () {
         socket.on("stop", function(data){
             console.log(data.text)
             clearInterval(timer);
-            text.css("color", "rgb(253, 4, 4)");
+            body.css("color", "rgb(253, 4, 4)");
         })
     }();
 
