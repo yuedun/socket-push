@@ -44,17 +44,18 @@ $(function () {
         });
         var timer;
         var shadow = 0;
+        var color = "rgb(253, 4, 4)";
         socket.on("message", function (data) {
             text.html(data.text);
             play(data.text, "viviyufeng");
             timer = setInterval(function(){
                 if (!body.css("background-color")) {
-                    body.css("background-color", "rgb(253, 4, 4)");
+                    body.css("background-color", color);
                 }
-                if (body.css("background-color") === "rgb(253, 4, 4)") {
+                if (body.css("background-color") === color) {
                     body.css("background-color", "#FFF")
                 } else {
-                    body.css("background-color", "rgb(253, 4, 4)");
+                    body.css("background-color", color);
                 }
                 if (shadow < 20) {
                     shadow++;
@@ -64,9 +65,8 @@ $(function () {
             }, 1000);
         });
         socket.on("stop", function(data){
-            console.log(data.text)
             clearInterval(timer);
-            body.css("color", "rgb(253, 4, 4)");
+            body.css("background-color", color);
         })
     }();
 
