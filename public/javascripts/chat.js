@@ -8,7 +8,9 @@ $(function () {
     var myName = false;
 
     //建立websocket连接
-    socket = io.connect('/chat');
+    socket = io.connect('/chat',{
+        // transports: ['polling']
+    });
     //收到server的连接确认
     socket.on('open', function () {
         status.text('Choose a name:');
