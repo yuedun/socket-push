@@ -10,9 +10,9 @@ exports.init = function (nspio) {
         });
     });
 };
-exports.play = function(msg){
+exports.play = function (msg) {
     gso.emit('message', { text: msg });
 }
-exports.stop = function() {
+exports.stop = function () {
     gso.emit("stop");
 }

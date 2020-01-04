@@ -1,17 +1,17 @@
-var chatHandler = require('./chat-event');
-var notifyHandler = require('./notify-event');
+const chatHandler = require('./chat-event');
+const notifyHandler = require('./notify-event');
 /**
  * socket命名空间配置
  */
-var namespace = {
+const namespace = {
 	// 'path': function
 	'/chat': chatHandler,
 	'/notify': notifyHandler.init,
 }
 
-var event = function(io){
-	for(var prop in namespace){
-		var nspSio = io.of(prop);
+const event = function (io) {
+	for (let prop in namespace) {
+		let nspSio = io.of(prop);
 		namespace[prop](nspSio);
 	}
 }
