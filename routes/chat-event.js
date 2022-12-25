@@ -3,7 +3,7 @@ const handler = function (nspio) {
 	nspio.on('connection', function (socket) {
 		socket.emit('open'); //通知客户端已连接
 		//打印握手信息
-		console.log(socket.handshake);
+		console.log('socket.handshake:', socket.handshake);
 		//构造客户端对象
 		const client = {
 			socket: socket,
