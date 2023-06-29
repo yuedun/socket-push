@@ -15,13 +15,6 @@ router.get('/notify', function (req, res) {
 });
 
 /**
- * 文字转语音通知
- */
-router.get('/notify', function (req, res) {
-	res.render('notify.html', {});
-});
-
-/**
  * 打开发送通知
  */
 router.get('/sendpage', function (req, res) {
