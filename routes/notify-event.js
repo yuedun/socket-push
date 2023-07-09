@@ -1,6 +1,11 @@
 
 var gso;
 exports.init = function (nspio) {
+    nspio.use((socket, next) => {
+		const token = socket.handshake.auth.token;
+		debug(">>>>>>>>caht-event中间件", token);
+		next();
+	});
     nspio.on('connection', function (socket) {
         gso = socket;
         socket.emit('open', { text: "连接成功" }); //通知客户端已连接

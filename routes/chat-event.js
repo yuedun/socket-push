@@ -1,7 +1,12 @@
+const debug = require('debug')('ws_server:chat-event');
 
 const handler = function (nspio) {
 	nspio.on('connection', function (socket) {
-		socket.emit('open'); //通知客户端已连接
+		nspio.use((socket, next) => {
+			const token = socket.handshake.auth.token;
+			debug(">>>>>>>>caht-event中间件", token);
+			next();
+		});
 		//打印握手信息
 		console.log('socket.handshake:', socket.handshake);
 		//构造客户端对象
